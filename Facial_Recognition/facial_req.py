@@ -8,6 +8,16 @@ import imutils
 import pickle
 import time
 import cv2
+import connectAWS
+import RPI.GPIO as GPIO
+
+Buzzer_pin = 24
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(Buzzer_pin, GPIO.OUT)
+
+
 
 #Initialize 'currentname' to trigger only when a new person is identified.
 currentname = "unknown"
@@ -74,6 +84,17 @@ while True:
 				currentname = name
 				print(currentname)
 				############ SENT TO SERVER HERE #############
+				send_message()
+				aws_disconnect()
+				for i in range(0, 4):
+					for pulse in in range(60):
+						GPIO.output(Buzzer_pin, True)
+						time.sleep(0.001)
+						GPIO.output(Buzzer_pin, False)
+						time.sleep(0.001)
+					time.sleep(0.02)
+	GPIO.cleanup()
+
 
 		# update the list of names
 		names.append(name)
