@@ -8,7 +8,8 @@ import imutils
 import pickle
 import time
 import cv2
-import connectAWS
+#import connectAWS
+import connectAWSPost
 import RPI.GPIO as GPIO
 
 Buzzer_pin = 24
@@ -85,7 +86,7 @@ while True:
 				print(currentname)
 				############ SENT TO SERVER HERE #############
 				send_message()
-				aws_disconnect()
+				#aws_disconnect()
 				for i in range(0, 4):
 					for pulse in in range(60):
 						GPIO.output(Buzzer_pin, True)
