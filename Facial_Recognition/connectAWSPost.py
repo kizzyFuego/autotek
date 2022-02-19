@@ -1,23 +1,4 @@
-# Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-#
-# This file is licensed under the Apache License, Version 2.0 (the "License").
-# You may not use this file except in compliance with the License. A copy of the
-# License is located at
-#
-# http://aws.amazon.com/apache2.0/
-#
-# This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS
-# OF ANY KIND, either express or implied. See the License for the specific
-# language governing permissions and limitations under the License.
-
-# AWS Version 4 signing example
-
-# DynamoDB API (CreateTable)
-
-# See: http://docs.aws.amazon.com/general/latest/gr/sigv4_signing.html
-# This version makes a POST request and passes request parameters
-# in the body (payload) of the request. Auth information is passed in
-# an Authorization header.
+# from: https://docs.aws.amazon.com/general/latest/gr/sigv4-signed-request-examples.html
 import sys, os, base64, datetime, hashlib, hmac
 import requests # pip install requests
 
@@ -129,11 +110,12 @@ headers = {'Content-Type':content_type,
 
 
 # ************* SEND THE REQUEST *************
-print('\nBEGIN REQUEST++++++++++++++++++++++++++++++++++++')
-print('Request URL = ' + endpoint)
+def send_message():
+    print('\nBEGIN REQUEST++++++++++++++++++++++++++++++++++++')
+    print('Request URL = ' + endpoint)
 
-r = requests.post(endpoint, data=request_parameters, headers=headers)
+    r = requests.post(endpoint, data=request_parameters, headers=headers)
 
-print('\nRESPONSE++++++++++++++++++++++++++++++++++++')
-print('Response code: %d\n' % r.status_code)
-print(r.text)
+    print('\nRESPONSE++++++++++++++++++++++++++++++++++++')
+    print('Response code: %d\n' % r.status_code)
+    print(r.text)
