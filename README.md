@@ -15,7 +15,7 @@ cd DashWarningApp
 npm install
 
 ```
-- Start App to compile
+- Compile the app
 ```
 npm start
 ```
