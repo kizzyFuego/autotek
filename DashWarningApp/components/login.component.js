@@ -33,7 +33,7 @@ export default class Login extends Component {
         <Item style={{marginBottom: 10}} rounded>
           <Icon style={{color: "#fff"}} name='person-outline'/>
           <Input style={{color: "#fff"}} 
-            placeholder='Please Enter Email'
+            placeholder='Please Enter Email Address'
             placeholderTextColor="#fff"
             onChangeText={(email) => this.email = email}/>
         </Item>
